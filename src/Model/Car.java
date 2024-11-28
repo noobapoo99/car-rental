@@ -6,7 +6,7 @@ public class Car {
     private String color;
     private int year;
     private double price;
-    private boolean available;
+    private int available;
 
     public Car(){}
 
@@ -60,7 +60,7 @@ public class Car {
         this.price = price;
     }
 
-    public boolean isAvaialble(){
+    public int isAvaialble(){
         return available;
     }
 
