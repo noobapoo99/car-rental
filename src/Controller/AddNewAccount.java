@@ -1,7 +1,11 @@
 package Controller;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
+import src.Model.Client;
 import src.Model.Database;
 import src.Model.Operation;
 import src.Model.User;
@@ -30,6 +34,23 @@ public class AddNewAccount implements Operation {
 			confirmPassword = s.next();
 		}
 		int accType = 1;
+		try {
+			
+			ResultSet rs = database.getStatement().executeQuery("SELECT COUNT(*) FROM `users`;");
+			rs.next();
+			int ID = rs.getInt("COUNT(*)");
+			
+			String insert = "INSERT INTO `users`(`ID`, `FirstName`, `LastName`,"
+					+ " `Email`, `PhoneNumber`, `Password`, `Type`) VALUES"
+					+ " ('"+ID+"','"+firstName+"','"+lastName+"','"+email+"',"
+							+ "'"+phoneNumber+"','"+password+"','"+accType+"');";
+			database.getStatement().execute(insert);
+			System.out.println("Account created successfully\n");
+
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 	
 }
