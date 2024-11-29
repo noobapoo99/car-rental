@@ -1,5 +1,7 @@
 package src.Model;
 
+import java.util.Scanner;
+
 public class Client extends User {
 	
 	

@@ -3,9 +3,12 @@ package src.Model;
 
 import java.util.Scanner;
 
+import Controller.AddNewAccount;
+
 public class Admin extends User {
   
-	
+	private Operation[] operations = new Operation[] {new AddNewAccount()};
+
 	public Admin() {
 		super();
 	}
@@ -23,6 +26,8 @@ public class Admin extends User {
 		System.out.println("09. Change Password");
 		System.out.println("10. Quit\n");
 		
+        int i = s.nextInt();
+        operations[i].operation(database, s, this);
 		
 	}
 	
