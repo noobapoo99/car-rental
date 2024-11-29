@@ -22,6 +22,14 @@ public class AddNewAccount implements Operation {
 		String password = s.next();
 		System.out.println("Confirm Password:");
 		String confirmPassword = s.next();
+		while (!password.equals(confirmPassword)) {
+			System.out.println("Password doesn't match");
+			System.out.println("Enter Password:");
+			password = s.next();
+			System.out.println("Confirm Password:");
+			confirmPassword = s.next();
+		}
+		int accType = 1;
 	}
 	
 }
